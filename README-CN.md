@@ -19,11 +19,11 @@ terraform-alicloud-dms-rds
 
 ```hcl
 module "dms-rds" {
-  source      = "terraform-alicloud-modules/dms-rds/alicloud"
-  region      = "cn-hangzhou"
-  db_type     = "rds.mysql.t1.small"
-  db_account  = "terraformTest"
-  db_password = "Helloworld996!"
+  source            = "terraform-alicloud-modules/dms-rds/alicloud"
+  region            = "cn-hangzhou"
+  db_type           = "rds.mysql.t1.small"
+  db_account        = "terraformTest"
+  db_password       = "Helloworld996!"
 }
 ```
 
@@ -37,13 +37,13 @@ module "dms-rds" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | > = 0.13.0 |
-| <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | > = 1.56.0 |
+| <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | > = 1.81.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_alicloud"></a> [alicloud](#provider\_alicloud) | > = 1.56.0 |
+| <a name="provider_alicloud"></a> [alicloud](#provider\_alicloud) | > = 1.81.0 |
 
 ## 提交问题
 
