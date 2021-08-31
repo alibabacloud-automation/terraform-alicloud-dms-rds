@@ -1,4 +1,4 @@
-Terraform module which creates lightweight web service with ECS&RDS on Alibaba Cloud
+Terraform module which managing RDS by DMS on Alibaba Cloud
 
 terraform-alicloud-dms-rds
 =====================================================================
