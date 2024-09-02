@@ -3,29 +3,12 @@ variable "region" {
   type        = string
 }
 
-variable "vpc_name" {
-  description = "The name of the VPC."
+variable "vswitch_id" {
+  description = "The id of vswtich."
   type        = string
-  default     = "tf-testAccVpcName"
+  default     = null
 }
 
-variable "vpc_cidr_block" {
-  description = "The secondary CIDR blocks for the VPC."
-  type        = string
-  default     = "172.16.0.0/12"
-}
-
-variable "vswtich_name" {
-  description = "The name of vswtich."
-  type        = string
-  default     = "tf-testAccVswtich"
-}
-
-variable "vswitch_cidr_block" {
-  description = "The secondary CIDR blocks for the vswtich."
-  type        = string
-  default     = "172.16.0.0/16"
-}
 
 variable "db_engine" {
   description = "Database type. Value options: MySQL, SQLServer, PostgreSQL, and PPAS."
@@ -51,6 +34,12 @@ variable "db_storyge" {
   default     = "10"
 }
 
+variable "db_storage_type" {
+  description = "The DB instance storage type."
+  type        = string
+  default     = "cloud_essd"
+}
+
 variable "db_name" {
   description = "The name of DB instance. It a string of 2 to 256 characters."
   type        = string
@@ -60,7 +49,7 @@ variable "db_name" {
 variable "db_security_ips" {
   description = "List of IP addresses allowed to access all databases of an instance. "
   type        = list(string)
-  default     = ["100.104.5.0/24","192.168.0.6","100.104.205.0/24"]
+  default     = ["100.104.5.0/24", "192.168.0.6", "100.104.205.0/24"]
 }
 
 variable "db_account" {
@@ -94,12 +83,6 @@ variable "dms_env_type" {
   default     = "test"
 }
 
-variable "dms_db_alias" {
-  description = "It has been deprecated from provider version 1.100.0 and 'instance_name' instead."
-  type        = string
-  default     = "tf-testDmsDbAlias"
-}
-
 variable "dms_query_time" {
   description = "Query timeout time, unit: s (seconds)."
   type        = string
@@ -120,8 +103,8 @@ variable "dms_ddl_online" {
 
 variable "dms_use_dsql" {
   description = "Whether to enable cross-instance query. Valid values: `0` not open, `1` open."
-  type        = string
-  default     = "0"
+  type        = number
+  default     = 0
 }
 
 variable "dms_data_link_name" {
@@ -133,5 +116,17 @@ variable "dms_data_link_name" {
 variable "dms_tid" {
   description = "The tenant ID. "
   type        = string
-  default     = "13429"
+  default     = null
+}
+
+variable "dms_dba_uid" {
+  description = "The DBA ID of the instance. "
+  type        = string
+  default     = null
+}
+
+variable "dms_instance_type" {
+  description = "The instance type of the DMS instance. "
+  type        = string
+  default     = "mysql"
 }
