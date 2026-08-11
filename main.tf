@@ -18,6 +18,7 @@ resource "alicloud_rds_account" "account" {
 
 resource "alicloud_dms_enterprise_instance" "default" {
   dba_uid           = var.dms_dba_uid
+  sell_trust        = false
   host              = alicloud_db_instance.instance.connection_string
   port              = 3306
   network_type      = "VPC"
